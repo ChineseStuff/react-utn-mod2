@@ -1,0 +1,14 @@
+.App {
+  background-color: #abbdc4;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.App-link {
+  margin: 10px 0px;
+  color: #000;
+  font-size: 25px;
+}
