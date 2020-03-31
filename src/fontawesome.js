@@ -4,7 +4,9 @@ import {
   faUnlockAlt,
   faPhoneAlt,
   faSignature,
-  faExclamationCircle
+  faExclamationCircle,
+  faUserPlus,
+  faCircle
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -12,5 +14,7 @@ library.add(
   faUnlockAlt,
   faPhoneAlt,
   faSignature,
-  faExclamationCircle
+  faExclamationCircle,
+  faUserPlus,
+  faCircle
 );

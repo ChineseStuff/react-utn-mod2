@@ -73,12 +73,14 @@
   display: flex;
   box-shadow: 0 20px 20px 0 rgba(69, 90, 100, 0.08);
   background-color: white;
+  margin: 30px 30px;
 }
 .profile-wrapper .right-side {
   width: 35%;
   padding: 30px 25px;
-  background: #02836d;
+  /* background: #02836d; */
   border-top-right-radius: 5px;
+  box-shadow: inset 0px 0px 279px 25px #1a8daa;
   border-bottom-right-radius: 5px;
   text-align: center;
   color: #fff;
@@ -92,6 +94,12 @@
 
 .profile-wrapper .right-side h4 {
   font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.profile-wrapper .right-side p {
+  margin-top: 0px;
 }
 
 .profile-wrapper .left-side {

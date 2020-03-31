@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./user.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const UserProfile = props => {
-  const user = {
-    fullName: "Ricardito Tamal",
-    city: "estulapio",
-    profileImage: "https://i.imgur.com/gQL6Dg4.jpg"
-  };
+const UserProfile = ({ user, toggleFriendship }) => {
+  const [friendship, setFriendship] = useState({
+    isFriend: false,
+    friendshipStyle: ""
+  });
   return (
     <div className='profile-wrapper'>
       <div className='left-side'>
@@ -27,6 +27,17 @@ const UserProfile = props => {
       <div className='right-side'>
         <img alt='user' src={user.profileImage}></img>
         <h4>{user.fullName}</h4>
+        {friendship.isFriend && <p>Es mi amigo!</p>}
+        <FontAwesomeIcon
+          icon={["fas", "user-plus"]}
+          transform='shrink-8 up-.5'
+          mask={["fas", "circle"]}
+          style={{
+            color: "white"
+          }}
+          size='3x'
+          onClick={() => toggleFriendship(friendship, setFriendship)}
+        />
       </div>
     </div>
   );
