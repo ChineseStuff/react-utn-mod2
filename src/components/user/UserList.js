@@ -1,20 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import UserProfile from "./UserProfile";
-import { users } from "../../mockData";
+import { usersData } from "../../mockData";
 
 const UserList = () => {
-  const toggleFriendship = (friendshipState, setFriendship) => {
-    setFriendship({
-      isFriend: !friendshipState.isFriend,
-      friendshipStyle: !friendshipState.friendshipStyle
-        ? "friend-style"
-        : "non-friend-style"
-    });
+  const [users, setUsers] = useState();
+
+  useEffect(() => {
+    setUsers(usersData);
+  }, []);
+
+  const toggleFriendship = user => {
+    user.isFriend = !user.isFriend;
+    setUsers(users.map(_user => (_user.id === user.id ? user : _user)));
   };
+
   return (
     <>
-      <UserProfile user={users[1]} toggleFriendship={toggleFriendship} />
-      <UserProfile user={users[2]} toggleFriendship={toggleFriendship} />
+      {users &&
+        users.map(user => (
+          <UserProfile
+            key={user.id}
+            user={user}
+            toggleFriendship={toggleFriendship}
+          />
+        ))}
     </>
   );
 };

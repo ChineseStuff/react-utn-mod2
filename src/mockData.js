@@ -1,12 +1,16 @@
-export const users = {
-  1: {
+export const usersData = [
+  {
+    id: 1,
     fullName: "Ricardito Tamal",
     city: "Estulapio",
-    profileImage: "https://i.imgur.com/gQL6Dg4.jpg"
+    profileImage: "/el.jpg",
+    isFriend: false
   },
-  2: {
+  {
+    id: 2,
     fullName: "Carmen Burrita",
     city: "Canolia",
-    profileImage: "https://shorturl.at/hoEWY"
+    profileImage: "/ella.jpg",
+    isFriend: false
   }
-};
+];

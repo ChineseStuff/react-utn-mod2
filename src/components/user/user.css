@@ -68,17 +68,21 @@
 /* User Profile Styles ####START#### */
 
 .profile-wrapper {
-  width: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.profile-card {
+  width: 600px;
   border-radius: 5px;
   display: flex;
   box-shadow: 0 20px 20px 0 rgba(69, 90, 100, 0.08);
   background-color: white;
   margin: 30px 30px;
 }
-.profile-wrapper .right-side {
+.profile-card .right-side {
   width: 35%;
   padding: 30px 25px;
-  /* background: #02836d; */
   border-top-right-radius: 5px;
   box-shadow: inset 0px 0px 279px 25px #1a8daa;
   border-bottom-right-radius: 5px;
@@ -86,35 +90,35 @@
   color: #fff;
 }
 
-.profile-wrapper .right-side img {
+.profile-card .right-side img {
   border-radius: 5px;
   margin-bottom: 10px;
   width: 150px;
 }
 
-.profile-wrapper .right-side h4 {
+.profile-card .right-side h4 {
   font-size: 20px;
   margin-top: 5px;
   margin-bottom: 15px;
 }
 
-.profile-wrapper .right-side p {
+.profile-card .right-side p {
   margin-top: 0px;
 }
 
-.profile-wrapper .left-side {
+.profile-card .left-side {
   width: 65%;
-  padding: 0px 25px;
+  padding: 25px 25px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   display: flex;
   align-items: flex-start;
 }
 
-.profile-wrapper .left-side .panel-info {
+.profile-card .left-side .panel-info {
   width: 100%;
 }
-.profile-wrapper .left-side .panel-info h3 {
+.profile-card .left-side .panel-info h3 {
   font-size: 22px;
   letter-spacing: 5px;
   text-transform: uppercase;
@@ -122,26 +126,43 @@
   text-align: left;
 }
 
-.profile-wrapper .left-side .panel-info .inf {
+.profile-card .left-side .panel-info .inf {
   display: flex;
   justify-content: space-between;
 }
 
-.profile-wrapper .left-side .panel-info .item {
+.profile-card .left-side .panel-info .item {
   width: 45%;
   text-align: left;
 }
 
-.profile-wrapper .left-side .panel-info .item h4 {
+.profile-card .left-side .panel-info .item h4 {
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-.profile-wrapper .left-side .panel-info .item p {
+.profile-card .left-side .panel-info .item p {
   font-size: 14px;
   margin-bottom: 10px;
   color: #6d7379;
   text-transform: capitalize;
+}
+
+.friend-style {
+  color: #ebbb62;
+}
+.non-friend-style {
+  color: #fff;
+}
+.friend-style:hover,
+.non-friend-style:hover {
+  color: #ffa600;
+}
+
+.friendship {
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 /* User Profile Styles ####END#### */

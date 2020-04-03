@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SignUpUser from "./SignUpUser";
+import * as constants from "./UserConstants";
 
 const ManageLogin = props => {
   const [fields, setFields] = useState({});
@@ -36,62 +37,59 @@ const ManageLogin = props => {
     const _errors = {};
 
     if (!fields.name) {
-      _errors.name = "Name cannot be empty";
+      _errors.name = constants.ERROR_SIGNUP_EMPTY_NAME;
     }
 
     if (typeof fields.name !== "undefined") {
-      if (!fields.name.match(/^[a-zA-Z ]*$/)) {
-        _errors.name = "Please enter alphabet characters only.";
+      if (!fields.name.match(constants.SIGNUP_ALPHABET_PATTERN)) {
+        _errors.name = constants.ERROR_SIGNUP_ALPHABET_NOTMATCH;
       }
     }
 
     if (!fields.lastname) {
-      _errors.lastname = "Lastname cannot be empty";
+      _errors.lastname = constants.ERROR_SIGNUP_EMPTY_LASTNAME;
     }
 
     if (typeof fields.lastname !== "undefined") {
-      if (!fields.lastname.match(/^[a-zA-Z ]*$/)) {
-        _errors.lastname = "Please enter alphabet characters only.";
+      if (!fields.lastname.match(constants.SIGNUP_ALPHABET_PATTERN)) {
+        _errors.lastname = constants.ERROR_SIGNUP_ALPHABET_NOTMATCH;
       }
     }
 
     if (!fields.email) {
-      _errors.email = "Email will be your user credential, it cannot be empty";
+      _errors.email = constants.ERROR_SIGNUP_EMPTY_EMAIL;
     }
 
     if (typeof fields.email !== "undefined") {
-      let pattern = new RegExp(
-        /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
-      );
+      let pattern = new RegExp(constants.SIGNUP_EMAIL_PATTERN);
       if (!pattern.test(fields.email)) {
-        _errors.email = "Please enter a valid email.";
+        _errors.email = constants.ERROR_SIGNUP_EMAIL_NOTMATCH;
       }
     }
 
     if (typeof fields.phone !== "undefined" && fields.phone !== "") {
-      if (!fields.phone.match(/^[0-9]{10}$/)) {
-        _errors.phone = "Please enter valid phone. 10 digits";
+      if (!fields.phone.match(constants.SIGNUP_PHONE_PATTERN)) {
+        _errors.phone = constants.ERROR_SIGNUP_PHONE_NOTMATCH;
       }
     }
 
     if (!fields.password) {
-      _errors.password = "You must enter a password";
+      _errors.password = constants.ERROR_SIGNUP_EMPTY_PASSWORD;
     }
 
     if (typeof fields.password !== "undefined") {
-      let pattern = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
+      let pattern = new RegExp(constants.SIGNUP_PASSWORD_PATTERN);
       if (!pattern.test(fields.password)) {
-        _errors.password = "Please enter secure and strong password.";
+        _errors.password = constants.ERROR_SIGNUP_PASSWORD_NOTSTRONG;
       }
     }
 
     if (!fields.repassword) {
-      _errors.repassword = "You must confirm your password";
+      _errors.repassword = constants.ERROR_SIGNUP_EMPTY_REPASSWORD;
     }
 
     if (fields.repassword !== fields.password) {
-      _errors.repassword =
-        "The password confirmation does not match with original one";
+      _errors.repassword = constants.ERROR_SIGNUP_PASSWORD_NOTMATCH;
     }
 
     setErrors(_errors);
