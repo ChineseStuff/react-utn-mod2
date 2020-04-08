@@ -1,23 +1,35 @@
 import React, { useState, useEffect } from "react";
 import UserProfile from "./UserProfile";
-import { usersData } from "../../mockData";
 
 const UserList = () => {
   const [users, setUsers] = useState();
 
   useEffect(() => {
-    setUsers(usersData);
+    fetch(
+      "https://my-json-server.typicode.com/ChineseStuff/db-json-server/users/"
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setUsers(result);
+        },
+        (error) => {
+          console.log("Error");
+        }
+      );
   }, []);
 
-  const toggleFriendship = user => {
+  const toggleFriendship = (e, user) => {
+    if (!e) e = window.event;
     user.isFriend = !user.isFriend;
-    setUsers(users.map(_user => (_user.id === user.id ? user : _user)));
+    setUsers(users.map((_user) => (_user.id === user.id ? user : _user)));
+    e.stopPropagation();
   };
 
   return (
     <>
       {users &&
-        users.map(user => (
+        users.map((user) => (
           <UserProfile
             key={user.id}
             user={user}

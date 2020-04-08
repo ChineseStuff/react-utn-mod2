@@ -77,10 +77,12 @@
   border-radius: 5px;
   display: flex;
   box-shadow: 0 20px 20px 0 rgba(69, 90, 100, 0.08);
-  background-color: white;
+  background-color: #b9b9b98c;
   margin: 30px 30px;
 }
 .profile-card .right-side {
+  display: flex;
+  flex-direction: column;
   width: 35%;
   padding: 30px 25px;
   border-top-right-radius: 5px;
@@ -90,16 +92,23 @@
   color: #fff;
 }
 
-.profile-card .right-side img {
-  border-radius: 5px;
-  margin-bottom: 10px;
+.profile-card .right-side .image-profile {
+  height: 150px;
   width: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  align-self: center;
 }
 
 .profile-card .right-side h4 {
   font-size: 20px;
   margin-top: 5px;
   margin-bottom: 15px;
+}
+.profile-card .right-side #fai {
+  display: flex;
+  align-self: center;
 }
 
 .profile-card .right-side p {
@@ -166,3 +175,69 @@
 }
 
 /* User Profile Styles ####END#### */
+
+/* User Thumbnail */
+.thumbnail-container {
+  max-width: 700px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  box-shadow: 0 0 0.5rem #838383;
+  background-color: #b9b9b98c;
+  border-radius: 5px;
+  margin: 30px 30px;
+}
+
+.thumbnail-container .profile-photo,
+.thumbnail-container .content {
+  box-sizing: border-box;
+}
+.thumbnail-container .profile-photo {
+  margin: 20px 10px 20px 20px;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #fafafa;
+  background-color: #fafafa;
+  box-shadow: 0 0 0.5rem #babbbc;
+}
+.thumbnail-container .border-orange {
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px #ebbb62;
+}
+
+.thumbnail-container .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  width: 80%;
+  height: 50%;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.thumbnail-container .content .content-text {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.thumbnail-container .content .content-text .friendship {
+  display: flex;
+  align-self: center;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+.thumbnail-container .content .name-text {
+  margin-left: 20px;
+  letter-spacing: 0.7px;
+}
+.thumbnail-container .content #fai {
+  display: flex;
+  align-self: center;
+  margin-right: 20px;
+}

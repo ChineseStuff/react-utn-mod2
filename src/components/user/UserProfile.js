@@ -3,37 +3,33 @@ import "./user.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const UserProfile = ({ user, toggleFriendship }) => {
+  let imageWrappedStyleClass = "profile-photo";
+  if (user.isFriend) imageWrappedStyleClass += " border-orange";
   return (
-    <div className='profile-wrapper'>
-      <div className='profile-card'>
-        <div className='left-side'>
-          <div className='panel-info'>
-            <h3>Informacion</h3>
-            <div className='inf'>
-              <div className='item'>
-                <h4>Nombre</h4>
-                <p>{user.fullName}</p>
-              </div>
-              <div className='item'>
-                <h4>Ciudad</h4>
-                <p>{user.city}</p>
-              </div>
-            </div>
+    <div className='thumbnail-container'>
+      <div
+        className={imageWrappedStyleClass}
+        style={{
+          backgroundImage: "url('" + user.profileImage + "')",
+        }}
+      ></div>
+      <div className='content'>
+        <div className='content-text'>
+          <div className='name-text'>
+            <h3>{user.name}</h3>
+            <h6>{user.address.city}</h6>
           </div>
-        </div>
-        <div className='right-side'>
-          <img alt='user' src={user.profileImage}></img>
-          <h4>{user.fullName}</h4>
           {user.isFriend && <p className='friendship'>Es mi amigx!</p>}
-          <FontAwesomeIcon
-            icon={["fas", "user-plus"]}
-            transform='shrink-8 up-.5'
-            mask={["fas", "circle"]}
-            className={user.isFriend ? "friend-style" : "non-friend-style"}
-            size='3x'
-            onClick={() => toggleFriendship(user)}
-          />
         </div>
+        <FontAwesomeIcon
+          id='fai'
+          icon={["fas", "user-plus"]}
+          transform='shrink-8 up-.5'
+          mask={["fas", "circle"]}
+          className={user.isFriend ? "friend-style" : "non-friend-style"}
+          size='4x'
+          onClick={(e) => toggleFriendship(e, user)}
+        />
       </div>
     </div>
   );

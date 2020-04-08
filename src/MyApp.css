@@ -11,8 +11,7 @@
   height: 6vh;
   position: absolute;
   text-align: center;
-  bottom: 0;
-  padding: 10px 0px;
+  bottom: -5%;
   color: #000;
   font-size: 25px;
 }

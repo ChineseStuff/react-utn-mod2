@@ -1,7 +1,12 @@
-## Trabajo práctico Unidad N° 1 (optativo)
+## Trabajo práctico Unidad N° 2 (optativo)
 
 Consigna:
 
-Dada la pagina de detalle de perfil de la unidad anterior, realizar el desarrollo correspondiente para poder agregar a un usuario como "amigo". Al agregarlo como amigo modificar un estado del componente y colocar una leyenda "Es mi amigo!"
+Realizar una consulta a una api rest, para mostrar una pagina de home con un listado de perfiles.
+Se debe visualizar:
 
-Utilizar el evento onclick y el ciclo de vida correspondiente
+- Nombre
+- Apellido
+- Foto
+
+Mantener el/los componentes desarrollados hasta el momento.
