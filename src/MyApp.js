@@ -6,6 +6,7 @@ import FooterPage from "./components/common/FooterPage";
 import ManageLogin from "./components/user/ManageLogin";
 import HomePage from "./components/common/HomePage";
 import UserList from "./components/user/UserList";
+import UserProfileDetail from "./components/user/UserProfileDetail";
 
 function MyApp() {
   return (
@@ -15,6 +16,7 @@ function MyApp() {
         <Route exact path='/' component={HomePage} />
         <Route path='/signup' component={ManageLogin} />
         <Route path='/userlist' component={UserList} />
+        <Route path='/user-detail/:userId' component={UserProfileDetail} />
       </Switch>
       <FooterPage />
     </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import UserProfile from "./UserProfile";
 
-const UserList = () => {
+const UserList = ({ history }) => {
   const [users, setUsers] = useState();
 
   useEffect(() => {
@@ -20,10 +20,16 @@ const UserList = () => {
   }, []);
 
   const toggleFriendship = (e, user) => {
+    debugger;
     if (!e) e = window.event;
     user.isFriend = !user.isFriend;
     setUsers(users.map((_user) => (_user.id === user.id ? user : _user)));
     e.stopPropagation();
+  };
+
+  const openDetails = (user) => {
+    debugger;
+    history.push("/user-detail/" + user.id);
   };
 
   return (
@@ -34,6 +40,7 @@ const UserList = () => {
             key={user.id}
             user={user}
             toggleFriendship={toggleFriendship}
+            openDetails={openDetails}
           />
         ))}
     </>

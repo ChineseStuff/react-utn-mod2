@@ -2,11 +2,11 @@ import React from "react";
 import "./user.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const UserProfile = ({ user, toggleFriendship }) => {
+const UserProfile = ({ user, toggleFriendship, openDetails }) => {
   let imageWrappedStyleClass = "profile-photo";
   if (user.isFriend) imageWrappedStyleClass += " border-orange";
   return (
-    <div className='thumbnail-container'>
+    <div className='thumbnail-container' onClick={() => openDetails(user)}>
       <div
         className={imageWrappedStyleClass}
         style={{
