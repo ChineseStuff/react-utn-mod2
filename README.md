@@ -1,4 +1,4 @@
-## Trabajo práctico Unidad N° 1 (optativo)
+## Trabajo práctico Unidad N° 2 (optativo)
 
 Consigna:
 
