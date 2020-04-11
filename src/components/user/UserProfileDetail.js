@@ -1,27 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./user.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const UserProfileDetail = ({ toggleFriendship, ...props }) => {
-  let userId = props.match.params.userId;
-  let [user, setUser] = useState();
+const UserProfileDetail = (props) => {
+  let user = props.location.state.user;
+  let toggleFriendship = props.location.state.toggleFriendship;
 
   useEffect(() => {
-    console.log(userId);
-    fetch(
-      "https://my-json-server.typicode.com/ChineseStuff/db-json-server/users/" +
-        userId
-    )
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setUser(result);
-        },
-        (error) => {
-          console.log("Error");
-        }
-      );
-  }, [userId]);
+    console.log(user);
+    console.log(toggleFriendship);
+  }, []);
 
   return (
     <>
@@ -59,7 +47,7 @@ const UserProfileDetail = ({ toggleFriendship, ...props }) => {
                 mask={["fas", "circle"]}
                 className={user.isFriend ? "friend-style" : "non-friend-style"}
                 size='3x'
-                onClick={() => toggleFriendship(user)}
+                onClick={(e) => toggleFriendship(e, user)}
               />
             </div>
           </div>

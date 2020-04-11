@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import UserProfile from "./UserProfile";
+import { useHistory } from "react-router-dom";
 
-const UserList = ({ history }) => {
+const UserList = () => {
   const [users, setUsers] = useState();
+  let history = useHistory();
 
   useEffect(() => {
     fetch(
@@ -20,7 +22,6 @@ const UserList = ({ history }) => {
   }, []);
 
   const toggleFriendship = (e, user) => {
-    debugger;
     if (!e) e = window.event;
     user.isFriend = !user.isFriend;
     setUsers(users.map((_user) => (_user.id === user.id ? user : _user)));
@@ -29,7 +30,10 @@ const UserList = ({ history }) => {
 
   const openDetails = (user) => {
     debugger;
-    history.push("/user-detail/" + user.id);
+    history.push("/user-detail", {
+      user,
+      toggleFriendship,
+    });
   };
 
   return (

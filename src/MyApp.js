@@ -16,7 +16,7 @@ function MyApp() {
         <Route exact path='/' component={HomePage} />
         <Route path='/signup' component={ManageLogin} />
         <Route path='/userlist' component={UserList} />
-        <Route path='/user-detail/:userId' component={UserProfileDetail} />
+        <Route path='/user-detail/' component={UserProfileDetail} />
       </Switch>
       <FooterPage />
     </div>
