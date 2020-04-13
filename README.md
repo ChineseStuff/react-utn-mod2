@@ -1,12 +1,12 @@
-## Trabajo práctico Unidad N° 2 (optativo)
+## Trabajo práctico Obligatorio Modulo N° 2 Release 1.0.0
 
 Consigna:
 
-Realizar una consulta a una api rest, para mostrar una pagina de home con un listado de perfiles.
-Se debe visualizar:
+Desarrollar una red social con los siguietes componentes:
 
-- Nombre
-- Apellido
-- Foto
+- Registro
+- Home: Se visualizara el listado de perfiles registrados.
+- Pagina de perfil
+- Login
 
 Mantener el/los componentes desarrollados hasta el momento.

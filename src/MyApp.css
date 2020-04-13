@@ -16,6 +16,10 @@
   font-size: 25px;
 }
 
+.full-width {
+  width: 900px;
+}
+
 #root {
   max-width: 850px;
   margin: auto;

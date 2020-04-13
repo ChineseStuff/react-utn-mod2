@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import SignUpUser from "./SignUpUser";
+import UserLogin from "./UserLogin";
 import * as constants from "./UserConstants";
 
-const ManageLogin = props => {
+const ManageLogin = ({ handleLoggin }) => {
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
 
@@ -10,86 +10,42 @@ const ManageLogin = props => {
     const { name, value } = event.target;
     setFields(prevFields => ({
       ...prevFields,
-      [name]: value
+      [name]: value,
     }));
     setErrors(prevErrors => ({
       ...prevErrors,
-      [name]: ""
+      [name]: "",
     }));
   }
 
   function handleSave(e) {
     e.preventDefault();
-    if (!isValidSignUp()) return;
+    if (!isValidLoginForm()) return;
 
     let fields = {};
-    fields.name = "";
-    fields.lastname = "";
     fields.email = "";
-    fields.phone = "";
     fields.password = "";
-    fields.repassword = "";
     setFields(fields);
+    handleLoggin(true);
     alert("Form submitted");
   }
 
-  function isValidSignUp() {
+  function isValidLoginForm() {
     const _errors = {};
 
-    if (!fields.name) {
-      _errors.name = constants.ERROR_SIGNUP_EMPTY_NAME;
-    }
-
-    if (typeof fields.name !== "undefined") {
-      if (!fields.name.match(constants.SIGNUP_ALPHABET_PATTERN)) {
-        _errors.name = constants.ERROR_SIGNUP_ALPHABET_NOTMATCH;
-      }
-    }
-
-    if (!fields.lastname) {
-      _errors.lastname = constants.ERROR_SIGNUP_EMPTY_LASTNAME;
-    }
-
-    if (typeof fields.lastname !== "undefined") {
-      if (!fields.lastname.match(constants.SIGNUP_ALPHABET_PATTERN)) {
-        _errors.lastname = constants.ERROR_SIGNUP_ALPHABET_NOTMATCH;
-      }
-    }
-
     if (!fields.email) {
-      _errors.email = constants.ERROR_SIGNUP_EMPTY_EMAIL;
+      _errors.email = constants.ERROR_LOGIN_EMPTY_EMAIL;
     }
 
     if (typeof fields.email !== "undefined") {
-      let pattern = new RegExp(constants.SIGNUP_EMAIL_PATTERN);
+      let pattern = new RegExp(constants.EMAIL_PATTERN);
       if (!pattern.test(fields.email)) {
-        _errors.email = constants.ERROR_SIGNUP_EMAIL_NOTMATCH;
-      }
-    }
-
-    if (typeof fields.phone !== "undefined" && fields.phone !== "") {
-      if (!fields.phone.match(constants.SIGNUP_PHONE_PATTERN)) {
-        _errors.phone = constants.ERROR_SIGNUP_PHONE_NOTMATCH;
+        _errors.email = constants.ERROR_EMAIL_PATTERN_NOTMATCH;
       }
     }
 
     if (!fields.password) {
-      _errors.password = constants.ERROR_SIGNUP_EMPTY_PASSWORD;
-    }
-
-    if (typeof fields.password !== "undefined") {
-      let pattern = new RegExp(constants.SIGNUP_PASSWORD_PATTERN);
-      if (!pattern.test(fields.password)) {
-        _errors.password = constants.ERROR_SIGNUP_PASSWORD_NOTSTRONG;
-      }
-    }
-
-    if (!fields.repassword) {
-      _errors.repassword = constants.ERROR_SIGNUP_EMPTY_REPASSWORD;
-    }
-
-    if (fields.repassword !== fields.password) {
-      _errors.repassword = constants.ERROR_SIGNUP_PASSWORD_NOTMATCH;
+      _errors.password = constants.ERROR_LOGIN_EMPTY_PASSWORD;
     }
 
     setErrors(_errors);
@@ -97,7 +53,7 @@ const ManageLogin = props => {
   }
 
   return (
-    <SignUpUser errors={errors} onChange={handleChange} onSave={handleSave} />
+    <UserLogin errors={errors} onChange={handleChange} onSave={handleSave} />
   );
 };
 
