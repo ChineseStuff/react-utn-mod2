@@ -14,10 +14,9 @@ const UserList = props => {
       .then(
         result => {
           setUsers(result);
-          console.log(result);
         },
         error => {
-          console.log("Error");
+          console.log("Error: " + error);
         }
       );
   }, []);
