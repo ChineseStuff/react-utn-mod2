@@ -90,10 +90,11 @@
   border-bottom-right-radius: 5px;
   text-align: center;
   color: #fff;
+  align-content: center;
 }
 
 .profile-card .right-side .image-profile {
-  margin: 20px 10px 20px 20px;
+  margin: 20px 10px 20px 10px;
   width: 150px;
   height: 150px;
   background-size: cover;
@@ -131,7 +132,8 @@
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .profile-card .left-side .panel-info {
@@ -155,7 +157,7 @@
   text-align: left;
 }
 
-.profile-card .left-side .panel-info .item h4 {
+.profile-card .left-side .panel-info .item h5 {
   margin-top: 0px;
   margin-bottom: 0px;
 }

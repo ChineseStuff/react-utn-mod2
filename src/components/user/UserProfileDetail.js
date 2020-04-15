@@ -24,12 +24,25 @@ const UserProfileDetail = props => {
                 <h3>Informacion</h3>
                 <div className='inf'>
                   <div className='item'>
-                    <h4>Nombre</h4>
+                    <h5>Nombre</h5>
                     <p>{user.name}</p>
                   </div>
                   <div className='item'>
-                    <h4>Ciudad</h4>
+                    <h5>Ciudad</h5>
                     <p>{user.address.city}</p>
+                  </div>
+                </div>
+              </div>
+              <div className='panel-info'>
+                <h3>Trabajo Actual</h3>
+                <div className='inf'>
+                  <div className='item'>
+                    <h5>Compañía</h5>
+                    <p>{user.company.name}</p>
+                  </div>
+                  <div className='item'>
+                    <h5>Puesto</h5>
+                    <p>{user.company.catchPhrase}</p>
                   </div>
                 </div>
               </div>
