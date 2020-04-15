@@ -1,15 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./user.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const UserProfileDetail = (props) => {
-  let user = props.location.state.user;
-  let toggleFriendship = props.location.state.toggleFriendship;
+const UserProfileDetail = props => {
+  const [user, setUser] = useState(props.location.state.user);
 
-  useEffect(() => {
-    console.log(user);
-    console.log(toggleFriendship);
-  }, []);
+  const toggleFriendship = e => {
+    let _user = { ...user, isFriend: !user.isFriend };
+    setUser(_user);
+    e.stopPropagation();
+  };
+
+  let imageWrappedStyleClass = "image-profile";
+  if (user.isFriend) imageWrappedStyleClass += " border-orange";
 
   return (
     <>
@@ -33,7 +36,7 @@ const UserProfileDetail = (props) => {
             </div>
             <div className='right-side'>
               <div
-                className='image-profile'
+                className={imageWrappedStyleClass}
                 style={{
                   backgroundImage: "url('" + user.profileImage + "')",
                 }}
@@ -47,7 +50,7 @@ const UserProfileDetail = (props) => {
                 mask={["fas", "circle"]}
                 className={user.isFriend ? "friend-style" : "non-friend-style"}
                 size='3x'
-                onClick={(e) => toggleFriendship(e, user)}
+                onClick={e => toggleFriendship(e)}
               />
             </div>
           </div>

@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./user.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const UserProfile = ({ user, toggleFriendship, openDetails }) => {
+const UserProfile = props => {
+  const [user, setUser] = useState(props.user);
+  let history = useHistory();
+
+  const toggleFriendship = e => {
+    let _user = { ...user, isFriend: !user.isFriend };
+    setUser(_user);
+    e.stopPropagation();
+  };
+
+  const openDetails = user => {
+    history.push("/user-detail", {
+      user,
+    });
+  };
+
   let imageWrappedStyleClass = "profile-photo";
   if (user.isFriend) imageWrappedStyleClass += " border-orange";
+
   return (
     <div className='thumbnail-container' onClick={() => openDetails(user)}>
       <div
@@ -28,7 +45,7 @@ const UserProfile = ({ user, toggleFriendship, openDetails }) => {
           mask={["fas", "circle"]}
           className={user.isFriend ? "friend-style" : "non-friend-style"}
           size='4x'
-          onClick={(e) => toggleFriendship(e, user)}
+          onClick={e => toggleFriendship(e)}
         />
       </div>
     </div>

@@ -56,6 +56,12 @@ function MyApp() {
             <UserList {...props} isUserLogged={isUserLoggedState} />
           )}
         />
+        <Route
+          path='/user-detail'
+          render={props => (
+            <UserProfileDetail {...props} isUserLogged={isUserLoggedState} />
+          )}
+        />
       </Switch>
       <FooterPage />
     </div>

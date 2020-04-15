@@ -77,7 +77,7 @@
   border-radius: 5px;
   display: flex;
   box-shadow: 0 20px 20px 0 rgba(69, 90, 100, 0.08);
-  background-color: #b9b9b98c;
+  background-color: #d7d7d74a;
   margin: 30px 30px;
 }
 .profile-card .right-side {
@@ -93,12 +93,22 @@
 }
 
 .profile-card .right-side .image-profile {
-  height: 150px;
+  margin: 20px 10px 20px 20px;
   width: 150px;
-  border-radius: 50%;
+  height: 150px;
   background-size: cover;
   background-position: center;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #fafafa;
+  background-color: #fafafa;
+  box-shadow: 0 0 0.5rem #babbbc;
   align-self: center;
+}
+
+.profile-card .right-side .border-orange {
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px #ebbb62;
 }
 
 .profile-card .right-side h4 {
