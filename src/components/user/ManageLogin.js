@@ -27,7 +27,7 @@ const ManageLogin = ({ handleLoggin }) => {
     fields.password = "";
     setFields(fields);
     handleLoggin(true);
-    alert("Form submitted");
+    alert("User Logged");
   }
 
   function isValidLoginForm() {
