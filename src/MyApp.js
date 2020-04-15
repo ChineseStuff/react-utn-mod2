@@ -18,7 +18,6 @@ function MyApp() {
 
   const checkIsUserLoggedIn = () => {
     let _isLoggedInSession = sessionStorage.getItem("isUserLogged");
-    console.log(_isLoggedInSession);
     if (_isLoggedInSession && !isUserLoggedState)
       setIsUserLoggedState(_isLoggedInSession);
     else if (!_isLoggedInSession && isUserLoggedState)
