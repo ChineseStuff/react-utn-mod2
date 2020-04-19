@@ -24,9 +24,10 @@ function MyApp() {
       setIsUserLoggedState(_isLoggedInSession);
   };
 
-  const handleLoggin = isLogged => {
+  const handleLoggin = (isLogged, user) => {
     setIsUserLoggedState(isLogged);
     sessionStorage.setItem("isUserLogged", isLogged);
+    console.log(user);
   };
   return (
     <div className='app'>

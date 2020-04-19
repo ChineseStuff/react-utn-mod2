@@ -22,11 +22,7 @@ const ManageLogin = ({ handleLoggin }) => {
     e.preventDefault();
     if (!isValidLoginForm()) return;
 
-    let fields = {};
-    fields.email = "";
-    fields.password = "";
-    setFields(fields);
-    handleLoggin(true);
+    handleLoggin(true, fields);
     alert("User Logged");
   }
 
